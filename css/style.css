@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -86,12 +87,12 @@ body {
     .logo {
         font-size: 1.8rem;
     }
-    
+
     .tagline {
         font-size: 1.2rem;
         letter-spacing: 0.2em;
     }
-    
+
     .message {
         font-size: 1rem;
     }
