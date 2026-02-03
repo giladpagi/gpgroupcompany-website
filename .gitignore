@@ -1,0 +1,33 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+config.json
+
+# Build artifacts
+node_modules/
+dist/
+build/
+*.log
+
+# Backups
+*.bak
+*.backup
