@@ -7,6 +7,23 @@
     <meta name="description" content="Personal CV - Curriculum Vitae" />
     <meta name="author" content="" />
     <title>CV | Gilad Pagi</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MW3W0Y3PQT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-MW3W0Y3PQT');
+
+        // Track PDF downloads
+        function trackPdfDownload() {
+            gtag('event', 'download', {
+                'event_category': 'CV',
+                'event_label': 'PDF Download',
+                'value': 1
+            });
+        }
+    </script>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -56,7 +73,8 @@
                     Los Angeles, California · (310) 890-7113 ·
                     <a href="mailto:Gilad.Pagi@gmail.com">Gilad.Pagi@gmail.com</a>
                 </div>
-                <p class="lead mb-5">AI Engineer and Software Engineering Leader with a Ph.D. in Mathematics.
+                <p class="lead mb-5">AI Engineer and Software Engineering Leader with a Ph.D. in Mathematics from the
+                    University of Michigan, Ann Arbor.
                     Experienced in building high-performance, enterprise-grade AI solutions, large-scale distributed
                     systems, and leading engineering teams. Former Staff Software Engineer at Google with expertise in
                     GenAI/Agentic systems, back-end development, and data analysis.</p>
@@ -65,8 +83,8 @@
                         title="Publications"><i class="fas fa-file-alt"></i></a>
                     <a class="social-icon" href="https://www.linkedin.com/in/giladpagi/" title="LinkedIn"><i
                             class="fab fa-linkedin-in"></i></a>
-                    <a class="social-icon" href="assets/gilad_pagi_cv.pdf" title="Download PDF"><i
-                            class="fas fa-file-pdf"></i></a>
+                    <a class="social-icon" href="assets/gilad_pagi_cv.pdf" title="Download PDF"
+                        onclick="trackPdfDownload()"><i class="fas fa-file-pdf"></i></a>
                 </div>
             </div>
         </section>
@@ -309,6 +327,11 @@
                 <ul class="fa-ul mb-0">
                     <li>
                         <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        Consistently exceeded expectations with top-tier performance reviews and accelerated promotions
+                        at Google
+                    </li>
+                    <li>
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
                         National Mathematics Olympiad Medalist (High School)
                     </li>
                     <li>
@@ -335,10 +358,6 @@
                     <li>
                         <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
                         National Award for academic excellence from the Knesset (Israeli Parliament)
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                        Multiple-time invited speaker at meetups on Android security and Java reflection
                     </li>
                 </ul>
             </div>
