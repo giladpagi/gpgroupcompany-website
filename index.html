@@ -23,22 +23,192 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <main class="content">
-            <h1 class="logo">GP Group Company</h1>
-            <div class="divider"></div>
-            <h2 class="tagline">Coming Soon</h2>
-            <p class="message">We're working on something exciting. Stay tuned!</p>
-            <a href="cv.html" class="cv-link">View CV &rarr;</a>
-        </main>
-        <footer class="footer">
-            <p>&copy; 2026 GP Group Company. All rights reserved.</p>
-        </footer>
-    </div>
+    <!-- Animated particle canvas background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Ambient glow orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Main content -->
+    <main class="main-wrapper">
+        <div class="glass-card">
+
+            <!-- Brand -->
+            <div class="brand">
+                <p class="brand-name">GP Group Company</p>
+                <div class="brand-line"></div>
+            </div>
+
+            <!-- Coming Soon heading with staggered letter animation -->
+            <div class="cs-heading" aria-label="Coming Soon">
+                <div class="cs-row">
+                    <span style="--i:1">C</span><span style="--i:2">O</span><span style="--i:3">M</span><span
+                        style="--i:4">I</span><span style="--i:5">N</span><span style="--i:6">G</span>
+                </div>
+                <div class="cs-row">
+                    <span style="--i:7">S</span><span style="--i:8">O</span><span style="--i:9">O</span><span
+                        style="--i:10">N</span>
+                </div>
+            </div>
+
+            <p class="tagline">Something extraordinary is being crafted. Stay tuned.</p>
+
+            <!-- Countdown timer -->
+            <div class="countdown-wrapper">
+                <div class="countdown-item">
+                    <div class="countdown-box">
+                        <span class="countdown-num" id="days">000</span>
+                    </div>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-box">
+                        <span class="countdown-num" id="hours">00</span>
+                    </div>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-box">
+                        <span class="countdown-num" id="minutes">00</span>
+                    </div>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-item">
+                    <div class="countdown-box">
+                        <span class="countdown-num" id="seconds">00</span>
+                    </div>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+
+            <a href="cv.html" class="cv-btn">View CV <span class="arrow">&rarr;</span></a>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 GP Group Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // ========== PARTICLE CANVAS ==========
+        (function () {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let raf;
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            class Particle {
+                constructor() { this.init(); }
+                init() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.r = Math.random() * 1.5 + 0.5;
+                    this.alpha = Math.random() * 0.4 + 0.1;
+                    const t = Math.random();
+                    if (t < 0.12)      this.hue = '233,69,96';    // red accent
+                    else if (t < 0.22) this.hue = '243,156,18';   // orange accent
+                    else               this.hue = '160,190,255';   // blue-white
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > canvas.width)  this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(' + this.hue + ',' + this.alpha + ')';
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                resize();
+                const count = Math.max(60, Math.min(130, Math.floor(canvas.width * canvas.height / 8000)));
+                particles = Array.from({ length: count }, () => new Particle());
+            }
+
+            function connectParticles() {
+                const maxD = 110;
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const d = Math.sqrt(dx * dx + dy * dy);
+                        if (d < maxD) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = 'rgba(160,190,255,' + ((1 - d / maxD) * 0.12) + ')';
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function loop() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(function (p) { p.update(); p.draw(); });
+                connectParticles();
+                raf = requestAnimationFrame(loop);
+            }
+
+            window.addEventListener('resize', function () {
+                cancelAnimationFrame(raf);
+                initParticles();
+                loop();
+            });
+
+            initParticles();
+            loop();
+        })();
+
+        // ========== COUNTDOWN TIMER ==========
+        (function () {
+            var target = new Date('2026-09-01T00:00:00').getTime();
+            var dEl = document.getElementById('days');
+            var hEl = document.getElementById('hours');
+            var mEl = document.getElementById('minutes');
+            var sEl = document.getElementById('seconds');
+
+            function pad(n, w) { return String(n).padStart(w, '0'); }
+
+            function tick() {
+                var diff = target - Date.now();
+                if (diff <= 0) {
+                    dEl.textContent = '000'; hEl.textContent = '00';
+                    mEl.textContent = '00';  sEl.textContent = '00';
+                    return;
+                }
+                dEl.textContent = pad(Math.floor(diff / 86400000), 3);
+                hEl.textContent = pad(Math.floor((diff % 86400000) / 3600000), 2);
+                mEl.textContent = pad(Math.floor((diff % 3600000) / 60000), 2);
+                sEl.textContent = pad(Math.floor((diff % 60000) / 1000), 2);
+            }
+
+            tick();
+            setInterval(tick, 1000);
+        })();
+    </script>
 </body>
 
 </html>
