@@ -181,72 +181,6 @@ body {
     animation: fadeUp 0.7s ease-out 0.85s both;
 }
 
-/* ----- Countdown ----- */
-.countdown-wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-bottom: 3rem;
-    animation: fadeUp 0.7s ease-out 1s both;
-    flex-wrap: wrap;
-}
-
-.countdown-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.countdown-box {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 14px;
-    padding: 0.85rem 1.1rem;
-    min-width: 5rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.countdown-box::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 20%;
-    right: 20%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
-}
-
-.countdown-num {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0.06em;
-    background: linear-gradient(135deg, #fff 40%, rgba(255, 255, 255, 0.6));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.countdown-label {
-    font-size: 0.6rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: rgba(255, 255, 255, 0.3);
-}
-
-.countdown-sep {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.18);
-    line-height: 1;
-    align-self: flex-start;
-    padding-top: 0.55rem;
-}
 
 /* ----- CV Button ----- */
 .cv-btn {
@@ -310,18 +244,6 @@ body {
         padding: 3rem 1.75rem;
     }
 
-    .countdown-box {
-        min-width: 4rem;
-        padding: 0.7rem 0.8rem;
-    }
-
-    .countdown-num {
-        font-size: 1.6rem;
-    }
-
-    .countdown-sep {
-        font-size: 1.4rem;
-    }
 }
 
 @media (max-width: 380px) {
@@ -329,13 +251,6 @@ body {
         padding: 2.5rem 1.25rem;
     }
 
-    .countdown-box {
-        min-width: 3.5rem;
-    }
-
-    .countdown-num {
-        font-size: 1.3rem;
-    }
 }
 
 /* =====================================================

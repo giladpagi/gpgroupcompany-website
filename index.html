@@ -59,38 +59,7 @@
 
             <p class="tagline">Something extraordinary is being crafted. Stay tuned.</p>
 
-            <!-- Countdown timer -->
-            <div class="countdown-wrapper">
-                <div class="countdown-item">
-                    <div class="countdown-box">
-                        <span class="countdown-num" id="days">000</span>
-                    </div>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-sep">:</div>
-                <div class="countdown-item">
-                    <div class="countdown-box">
-                        <span class="countdown-num" id="hours">00</span>
-                    </div>
-                    <span class="countdown-label">Hours</span>
-                </div>
-                <div class="countdown-sep">:</div>
-                <div class="countdown-item">
-                    <div class="countdown-box">
-                        <span class="countdown-num" id="minutes">00</span>
-                    </div>
-                    <span class="countdown-label">Minutes</span>
-                </div>
-                <div class="countdown-sep">:</div>
-                <div class="countdown-item">
-                    <div class="countdown-box">
-                        <span class="countdown-num" id="seconds">00</span>
-                    </div>
-                    <span class="countdown-label">Seconds</span>
-                </div>
-            </div>
-
-            <a href="cv.html" class="cv-btn">View CV <span class="arrow">&rarr;</span></a>
+<a href="cv.html" class="cv-btn">View CV <span class="arrow">&rarr;</span></a>
 
         </div>
     </main>
@@ -182,32 +151,6 @@
             loop();
         })();
 
-        // ========== COUNTDOWN TIMER ==========
-        (function () {
-            var target = new Date('2026-09-01T00:00:00').getTime();
-            var dEl = document.getElementById('days');
-            var hEl = document.getElementById('hours');
-            var mEl = document.getElementById('minutes');
-            var sEl = document.getElementById('seconds');
-
-            function pad(n, w) { return String(n).padStart(w, '0'); }
-
-            function tick() {
-                var diff = target - Date.now();
-                if (diff <= 0) {
-                    dEl.textContent = '000'; hEl.textContent = '00';
-                    mEl.textContent = '00';  sEl.textContent = '00';
-                    return;
-                }
-                dEl.textContent = pad(Math.floor(diff / 86400000), 3);
-                hEl.textContent = pad(Math.floor((diff % 86400000) / 3600000), 2);
-                mEl.textContent = pad(Math.floor((diff % 3600000) / 60000), 2);
-                sEl.textContent = pad(Math.floor((diff % 60000) / 1000), 2);
-            }
-
-            tick();
-            setInterval(tick, 1000);
-        })();
     </script>
 </body>
 
