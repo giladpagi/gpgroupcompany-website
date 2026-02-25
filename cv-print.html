@@ -235,10 +235,18 @@
             </div>
             <div class="header-right">
                 Los Angeles, CA<br>
-                (310) 890-7113<br>
-                <a href="mailto:Gilad.Pagi@gmail.com">Gilad.Pagi@gmail.com</a><br>
-                <a href="https://www.linkedin.com/in/giladpagi/">linkedin.com/in/giladpagi</a>
+                <span id="phone"></span><br>
+                <a href="#" id="email-link"><span id="email"></span></a><br>
+                <a href="https://www.linkedin.com/in/giladpagi/" rel="noopener noreferrer">linkedin.com/in/giladpagi</a>
             </div>
+            <script>
+                (function () {
+                    var e = 'Gilad.Pagi', d = 'gmail.com', p = '(310) 890-7113';
+                    document.getElementById('email').textContent = e + '@' + d;
+                    document.getElementById('email-link').href = 'mailto:' + e + '@' + d;
+                    document.getElementById('phone').textContent = p;
+                })();
+            </script>
         </div>
 
         <!-- Summary -->

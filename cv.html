@@ -28,13 +28,17 @@
     </script>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Security meta tags -->
-    <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://use.fontawesome.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://use.fontawesome.com https://ka-f.fontawesome.com; img-src 'self' data:; connect-src https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://ka-f.fontawesome.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none';" />
+    <meta http-equiv="Permissions-Policy"
+        content="camera=(), microphone=(), geolocation=(), payment=()" />
     <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
     <!-- Devicon for programming language icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
         type="text/css" />
@@ -96,9 +100,10 @@
                     researchers.</p>
                 <div class="social-icons">
                     <a class="social-icon" href="https://arxiv.org/search/?searchtype=author&query=Pagi%2C+G"
-                        title="Publications"><i class="fas fa-file-alt"></i></a>
-                    <a class="social-icon" href="https://www.linkedin.com/in/giladpagi/" title="LinkedIn"><i
-                            class="fab fa-linkedin-in"></i></a>
+                        title="Publications" target="_blank" rel="noopener noreferrer"><i
+                            class="fas fa-file-alt"></i></a>
+                    <a class="social-icon" href="https://www.linkedin.com/in/giladpagi/" title="LinkedIn"
+                        target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                     <a class="social-icon" href="assets/gilad_pagi_cv.pdf" title="Download PDF"
                         onclick="trackPdfDownload()"><i class="fas fa-file-pdf"></i></a>
                 </div>
@@ -230,7 +235,8 @@
                         <h3 class="mb-0"><i class="fas fa-chalkboard-teacher text-primary me-2"></i>Instructor</h3>
                         <div class="subheading mb-3">University of Michigan & Technion, Israel</div>
                         <p>Taught Calculus 1, Calculus 4, Linear Algebra, and C-language. Created MOOC for GRE Math
-                            Subject exam preparation (<a href="https://subjectmath.com">SubjectMath.com</a>) with 80
+                            Subject exam preparation (<a href="https://subjectmath.com" target="_blank"
+                                rel="noopener noreferrer">SubjectMath.com</a>) with 80
                             hours of study materials, two published textbooks, and 12,140+ students enrolled.</p>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">2005 - 2017</span></div>
